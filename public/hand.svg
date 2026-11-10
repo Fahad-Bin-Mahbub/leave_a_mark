@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 0 108 120" width="216" height="240">
+  <!-- Pre-baked painted hand. Used as a CSS mask so the browser rasterizes it once
+       and reuses it for every handprint on the wall (instead of running a live SVG
+       filter per print). Colour comes from the element's background-color. -->
+  <defs>
+    <filter id="paint" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="4" result="edge"/>
+      <feDisplacementMap in="SourceGraphic" in2="edge" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="1" seed="11" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.1 1.4" result="grainAlpha"/>
+      <feComposite in="rough" in2="grainAlpha" operator="in"/>
+    </filter>
+  </defs>
+  <g fill="#000" filter="url(#paint)">
+    <rect x="23" y="50" width="56" height="56" rx="24"/>
+    <rect x="22" y="16" width="13" height="46" rx="6.5" transform="rotate(-10 28 60)"/>
+    <rect x="38" y="5" width="13" height="53" rx="6.5" transform="rotate(-3 44 58)"/>
+    <rect x="54" y="9" width="13" height="51" rx="6.5" transform="rotate(4 60 58)"/>
+    <rect x="69" y="24" width="11" height="40" rx="5.5" transform="rotate(12 74 62)"/>
+    <rect x="14" y="58" width="14" height="38" rx="7" transform="rotate(-30 26 96)"/>
+  </g>
+</svg>
+
